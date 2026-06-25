@@ -1,0 +1,98 @@
+# Node class representing each element of the linked list
+class Node:
+    def __init__(self, val):
+        self.data = val
+        self.next = None
+
+# LinkedList class to manage list operations
+class LinkedList:
+    def __init__(self):
+        self.head = None
+
+    # Function to insert a new node at the end
+    def insert(self, val):
+        new_node = Node(val)
+        if not self.head:
+            self.head = new_node  
+            return
+        temp = self.head
+        while temp.next:
+            temp = temp.next
+        temp.next = new_node
+
+    # Function to print the entire linked list
+    def print_list(self):
+        temp = self.head
+        while temp:
+            print(temp.data, end="")
+            if temp.next:
+                print(" -> ", end="")
+            temp = temp.next
+        print(" -> NULL")
+
+class Solution:
+    def sortZeroOneTwo(self, ll):
+
+        zero_dummy = Node(-1)
+        one_dummy = Node(-1)
+        two_dummy = Node(-1)
+
+        zero_tail = zero_dummy
+        one_tail = one_dummy
+        two_tail = two_dummy
+
+        curr = ll.head
+
+        while curr:
+            next_node = curr.next   # save next node
+            curr.next = None        # detach current node
+
+            if curr.data == 0:
+                zero_tail.next = curr
+                zero_tail = curr
+
+            elif curr.data == 1:
+                one_tail.next = curr
+                one_tail = curr
+
+            else:
+                two_tail.next = curr
+                two_tail = curr
+
+            curr = next_node
+
+        # Connect the three lists
+        zero_tail.next = one_dummy.next if one_dummy.next else two_dummy.next
+        one_tail.next = two_dummy.next 
+
+        # Set correct head
+        if zero_dummy.next:
+            ll.head = zero_dummy.next
+        elif one_dummy.next:
+            ll.head = one_dummy.next
+        else:
+            ll.head = two_dummy.next
+
+        return ll.head            
+
+# Driver code
+if __name__ == "__main__":
+    ll = LinkedList()
+    sol = Solution()
+
+    # Inserting nodes into linked list
+    ll.insert(1)
+    ll.insert(2)
+    ll.insert(0)
+    ll.insert(1)
+    ll.insert(2)
+    ll.insert(0)
+
+    print("Original List:")
+    ll.print_list()
+
+    # Sorting the list
+    sol.sortZeroOneTwo(ll)
+
+    print("Sorted List:")
+    ll.print_list()

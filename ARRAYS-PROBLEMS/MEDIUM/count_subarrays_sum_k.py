@@ -1,0 +1,99 @@
+class Solution:
+    # Function to find count of subarrays with sum equal to k
+    def subarraySum(self, arr, k):
+        # Size of the array
+        n = len(arr)
+
+        # Initialize count of subarrays
+        count = 0
+
+        # Traverse all possible start indices
+        for i in range(n):
+            # Initialize sum for current subarray
+            total = 0
+
+            # Traverse all possible end indices from start
+            for j in range(i, n):
+                # Add current element to sum
+                total += arr[j]
+
+                # If sum equals k, increment count
+                if total == k:
+                    count += 1
+
+        # Return total count of subarrays
+        return count
+
+
+# Driver code
+if __name__ == "__main__":
+    # Input array
+    arr = [3, 1, 2, 4]
+
+    # Target sum
+    k = 6
+
+    # Create Solution object
+    sol = Solution()
+
+    # Call function and store result
+    result = sol.subarraySum(arr, k)
+
+    # Print the count of subarrays
+    print("The number of subarrays is:", result)
+
+
+# Optimized Solution using Hash Map
+class Solution:
+    # Function to find count of subarrays with sum equal to k using prefix sums and hashmap
+    def subarraySum(self, arr, k):
+        # Size of the array
+        n = len(arr)
+
+        # Dictionary to store frequency of prefix sums
+        prefixSumCount = {}
+
+        # Initialize prefix sum and count of subarrays
+        prefixSum = 0
+        count = 0
+
+        # Base case: prefix sum 0 has occurred once
+        prefixSumCount[0] = 1
+
+        # Traverse through the array
+        for i in range(n):
+            # Add current element to prefix sum
+            prefixSum += arr[i]
+
+            # Calculate the prefix sum that needs to be removed
+            remove = prefixSum - k
+
+            # If this prefix sum has been seen before,
+            # add its count to the result
+            if remove in prefixSumCount:
+                count += prefixSumCount[remove]
+
+            # Update the frequency of the current prefix sum
+            prefixSumCount[prefixSum] = prefixSumCount.get(prefixSum, 0) + 1
+
+        # Return the total count of subarrays
+        return count
+
+
+# Driver code
+if __name__ == "__main__":
+    # Input array
+    arr = [3, 1, 2, 4]
+
+    # Target sum
+    k = 6
+
+    # Create Solution object
+    sol = Solution()
+
+    # Call function and store result
+    result = sol.subarraySum(arr, k)
+
+    # Print the count of subarrays
+    print("The number of subarrays is:", result)
+
