@@ -8,11 +8,11 @@ Following Striver's A2Z DSA Sheet & NeetCode 150 as part of ongoing interview pr
 
 ## Roadmap
 
-- [x] **Basics** — patterns, recursion warm-ups, math
-- [x] **Sorting** — selection, bubble, insertion, merge, quick (+ recursive variants)
+- [ ] **Basics** — patterns, recursion warm-ups, math
+- [ ] **Sorting** — selection, bubble, insertion, merge, quick (+ recursive variants)
 - [ ] **Arrays** — easy → hard patterns, two-pointer, sliding window basics
 - [ ] **Binary Search** — 1D, 2D, search-on-answer
-- [x] **Linked List** — singly, doubly, cycle detection, hard manipulations
+- [ ] **Linked List** — singly, doubly, cycle detection, hard manipulations
 - [ ] **Strings** — basic → advanced (KMP, Z-algorithm)
 - [ ] **Recursion & Backtracking**
 - [ ] **Stacks & Queues** — monotonic stack, next greater element
@@ -24,18 +24,6 @@ Following Striver's A2Z DSA Sheet & NeetCode 150 as part of ongoing interview pr
 - [ ] **Graphs** — BFS, DFS, topo sort, shortest path (Dijkstra, Bellman-Ford), MST
 - [ ] **Dynamic Programming** — 1D, 2D, on subsequences, strings, stocks, partition DP
 - [ ] **Tries**
-
-`[x]` substantially covered · `[ ]` planned / in progress
-
----
-
-## Data Structures Covered
-
-Arrays · Strings · Linked Lists (singly & doubly) · Stacks · Queues · Hash Maps / Sets · Trees (BT, BST) · Heaps · Tries · Graphs · Disjoint Set (Union-Find)
-
-## Algorithms Covered
-
-Sorting (merge, quick, etc.) · Binary Search · Recursion & Backtracking · Two Pointer · Sliding Window · Greedy · Tree/Graph Traversals (BFS, DFS) · Shortest Path · MST · Dynamic Programming · String Matching (KMP, Z)
 
 ---
 
